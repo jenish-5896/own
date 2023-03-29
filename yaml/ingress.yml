@@ -3,6 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hotel
+  namespace: default
   #annotations:
   #  traefik.ingress.kubernetes.io/redirect-entry-point: https
 spec:
@@ -10,10 +11,7 @@ spec:
   - host: uat-hotels.com
     http:
       paths:
-      - backend:
-          service:
-            name: sample
-            port:
-              number: 30094
-        path: /
-        pathType: ImplementationSpecific
+      - path: /
+        backend:
+          serviceName: sample
+          servicePort: 80
