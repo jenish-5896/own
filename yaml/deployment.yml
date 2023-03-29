@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  selector:
+    matchLabels:
+      app: sample
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      imagePullSecrets:
+        - name: dockerhubregistry
+      containers:
+        - name: privatetest
+          image: jennish/jen:latest
+          ports:
+            - containerPort: 8080
+     #     volumeMounts:
+     #     - name: isoproperties
+     #       mountPath: /usr/local/tomcat/conf/esewa/isoproperties
+     #     - name: esewa
+     #       mountPath: /usr/local/tomcat/conf/esewa/
+     #     - name: data
+     #       mountPath: /usr/local/tomcat/logs/
+     # volumes:
+     # - name: isoproperties
+     #   configMap:
+     #     name: isoproperties
+     # - name: esewa
+     #   configMap:
+     #     name: esewa
+     # - name: data
+     #   persistentVolumeClaim:
+     #     claimName: pvc
