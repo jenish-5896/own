@@ -19,13 +19,13 @@ spec:
           image: jennish/jen:latest
           ports:
             - containerPort: 8080
-     #     volumeMounts:
+          volumeMounts:
      #     - name: isoproperties
      #       mountPath: /usr/local/tomcat/conf/esewa/isoproperties
      #     - name: esewa
      #       mountPath: /usr/local/tomcat/conf/esewa/
-     #     - name: data
-     #       mountPath: /usr/local/tomcat/logs/
+          - name: data
+            mountPath: /usr/local/tomcat/logs/
      # volumes:
      # - name: isoproperties
      #   configMap:
@@ -33,6 +33,6 @@ spec:
      # - name: esewa
      #   configMap:
      #     name: esewa
-     # - name: data
-     #   persistentVolumeClaim:
-     #     claimName: pvc
+      - name: data
+        persistentVolumeClaim:
+          claimName: pvc
