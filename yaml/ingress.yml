@@ -7,6 +7,8 @@ metadata:
   #annotations:
   #  traefik.ingress.kubernetes.io/redirect-entry-point: https
 spec:
+  tls:
+  - secretName: my-tls-secret
   rules:
   - host: uat-hotels.com
     http:
