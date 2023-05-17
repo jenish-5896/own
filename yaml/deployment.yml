@@ -37,8 +37,7 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: pvc
-      - name: data2
-        emptyDir: {}
+     
           
 ---
 apiVersion: v1
