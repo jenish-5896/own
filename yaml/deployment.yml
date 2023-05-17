@@ -26,6 +26,7 @@ spec:
      #       mountPath: /usr/local/tomcat/conf/esewa/
           - name: data
             mountPath: /var/log/nginx
+            
       volumes:
      # - name: isoproperties
      #   configMap:
@@ -36,6 +37,8 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: pvc
+      - name: data2
+        emptyDir: {}
           
 ---
 apiVersion: v1
