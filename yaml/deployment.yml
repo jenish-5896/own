@@ -12,11 +12,11 @@ spec:
       labels:
         app: sample
     spec:
-     # imagePullSecrets:
-     #   - name: dockerhubregistry
+      imagePullSecrets:
+        - name: dockerhubregistry
       containers:
         - name: privatetest
-          image: nginx:latest
+          image: jennish/test:latest
           ports:
             - containerPort: 80
           volumeMounts:
@@ -25,7 +25,7 @@ spec:
      #     - name: esewa
      #       mountPath: /usr/local/tomcat/conf/esewa/
           - name: data
-            mountPath: /var/log/nginx
+            mountPath: /usr/local/tomcat/logs
             
       volumes:
      # - name: isoproperties
